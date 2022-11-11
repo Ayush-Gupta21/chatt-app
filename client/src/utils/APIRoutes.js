@@ -1,0 +1,10 @@
+ export const host = process.env.REACT_APP_BACKEND_URL
+ export const registerRoute = `/api/user/register`
+ export const loginRoute = `/api/user/login`
+ export const logoutRoute = `/api/user/logout`
+ export const setAvatarRoute = `/api/user/setAvatar`
+ export const allUsersRoute = `/api/user/allusers`
+ export const currentUserRoute = `/api/user`
+ export const sendMessageRoute = `/api/messages/addmsg`
+ export const getAllMessagesRoute = `/api/messages/getmsg`
+ export const renewAccessTokenRoute = `/api/auth/renewAccessToken`
