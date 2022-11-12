@@ -51,6 +51,7 @@ function Register(props) {
 
     const handleValidation = () => {
         const {username, email, password, confirmPassword} = values
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
         if (password !== confirmPassword) {
             toast.error(
                 "Password and Confirm Password must be same!", 
@@ -63,15 +64,24 @@ function Register(props) {
                 toastOptions
             ) 
             return false
-        } else if (password.length < 8) {
+        } 
+        else if (email === "") {
             toast.error(
-                "Password should be greater that or equal to 8 characters!", 
+                "Email is required!", 
                 toastOptions
             ) 
             return false
-        } else if (email === "") {
+        }
+        else if (!regex.test(values.email)) {
             toast.error(
-                "Email is required!", 
+                "This is not a valid email format!", 
+                toastOptions
+            ) 
+            return false
+        }
+        else if (password.length < 8) {
+            toast.error(
+                "Password should be greater that or equal to 8 characters!", 
                 toastOptions
             ) 
             return false
